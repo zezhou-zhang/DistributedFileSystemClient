@@ -33,7 +33,7 @@ public class LoadTest {
 		long average = getAverageFromArray(time);
 		
 		System.out.println(String.format("Approximate round trip times in milli-seconds: Minimum = %dms, Maximum = %dms, Average = %dms",
-			max, min, average));
+			min, max, average));
 	}
 	
 	
