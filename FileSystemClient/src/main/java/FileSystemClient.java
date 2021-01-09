@@ -9,12 +9,21 @@ import java.util.Scanner;
 public class FileSystemClient {
 	
 	private static String clientName = "Client1";
-	private static final String DEFAULT_ADDRESS = "172.17.91.2";
+	private static final String DEFAULT_ADDRESS = "172.17.91.1";
+	private static final int DEFAULT_PORT = 8003;
 	public static void main(String[] args) throws IOException {
-		String serverIP = args.length == 1 ? args[0] : DEFAULT_ADDRESS;
+		//String serverIP = args.length == 2 ? args[0] : DEFAULT_ADDRESS; 
+		String serverIP; int port;
+		if (args.length == 2) {
+			serverIP = args[0];
+			port = Integer.valueOf(args[1]);
+		}else {
+			serverIP = DEFAULT_ADDRESS;
+			port = DEFAULT_PORT;
+		}
 		Socket socket = null;
 		try {
-			socket = new Socket(serverIP, 8003);
+			socket = new Socket(serverIP, port);
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
